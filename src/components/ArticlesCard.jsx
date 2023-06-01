@@ -17,7 +17,8 @@ export default function ArticlesCard() {
   }
 
   return (
-    <div className="ArticlesCard card">
+    <>
+      {/* <div className="ArticlesCard card"> */}
       <h2 className="CardTitle">Articles</h2>
       {articles.map((article) => (
         <div key={article.article_id} className="ArticleItem">
@@ -38,6 +39,7 @@ export default function ArticlesCard() {
           </Link>
         </div>
       ))}
-    </div>
+      {/* </div> */}
+    </>
   );
 }

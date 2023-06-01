@@ -20,7 +20,7 @@ export default function Login() {
           day: "numeric",
         })}
       </div>
-      <Button variant="primary" className="ms-auto">
+      <Button variant="dark" className="ms-auto">
         Login
       </Button>
     </div>

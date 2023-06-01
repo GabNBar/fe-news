@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ArticlesCard />} />
         <Route path="/articles/:article_id" element={<ArticleCard />} />
-        <Route path="/topics" element={<ArticleTopicCard />} />
+        <Route path="/topics/:topics" element={<ArticleTopicCard />} />
       </Routes>
 
       <Footer />
