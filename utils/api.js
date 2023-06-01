@@ -2,7 +2,6 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://gabnbar.onrender.com/api/",
-  timeout: 2000,
 });
 
 export function fetchArticles() {
