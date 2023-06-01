@@ -1,3 +1,13 @@
 export default function Header() {
-  return <h1>GabNBar Times, HEADER</h1>;
+  return (
+    <>
+      {/* <button onClick={navigateHome}> */}
+      <h1>GabNBar Times, HEADER</h1>
+      {/* </button> */}
+
+      {/* <Routes>
+        <Route path="*" />
+      </Routes> */}
+    </>
+  );
 }

@@ -27,6 +27,9 @@ export default function ArticleCard() {
       <p>Topic: {article.topic[0].toUpperCase() + article.topic.slice(1)}</p>
       <h3>Author: {article.author}</h3>
       <p>{article.body}</p>
+      <button className="ArticleVoteButton">
+        Up Votes: {article.votes} ⬆️
+      </button>
       <CommentsCard />
     </>
   );

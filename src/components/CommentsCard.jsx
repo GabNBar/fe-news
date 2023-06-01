@@ -1,24 +1,23 @@
 import { fetchCommentsByArticle } from "../../utils/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { formatCreatedAt } from "../../utils/helpers";
 
 export default function CommentsCard() {
   const { article_id } = useParams();
-  const [comments, setComments] = useState();
-  const params = useParams();
+  const [comments, setComments] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchCommentsByArticle(article_id).then((commentsData) => {
       // console.log(typeof commentsData.comments);
+      setLoading(false);
       setComments(commentsData.comments);
     });
   }, []);
 
-  console.log(params, "params");
-  console.log(comments, "comments");
-
-  if (!comments) {
-    return <div>Comment section loading, please wait.</div>;
+  if (loading === true) {
+    return <p>Comment section loading, please wait.</p>;
   }
 
   return (
@@ -27,9 +26,9 @@ export default function CommentsCard() {
 
       {comments.map((comment) => (
         <div key={comment.comment_id}>
-          <h5>{comment.author}</h5>
+          <h5>Posted by: {comment.author}</h5>
           <p>{comment.body}</p>
-          <p>{comment.created_at}</p>
+          <p>Created at: {formatCreatedAt(comment.created_at)}</p>
           <div>
             <button> ❤️</button>
             <button>👎</button>
