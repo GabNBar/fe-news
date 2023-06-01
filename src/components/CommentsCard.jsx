@@ -10,7 +10,6 @@ export default function CommentsCard() {
 
   useEffect(() => {
     fetchCommentsByArticle(article_id).then((commentsData) => {
-      // console.log(typeof commentsData.comments);
       setLoading(false);
       setComments(commentsData.comments);
     });

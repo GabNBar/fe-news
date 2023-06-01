@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { fetchArticles } from "../../utils/api";
 import { Link } from "react-router-dom";
+import { formatCreatedAt } from "../../utils/helpers";
 
 export default function ArticlesCard() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     fetchArticles().then((data) => {
-      console.log(data);
       setArticles(data);
     });
   }, []);
@@ -29,8 +29,9 @@ export default function ArticlesCard() {
               className="ArticleImage"
             />
             <h3 className="ArticleAuthor">By: {article.author}</h3>
-            <p className="ArticleCreatedAt">Created At: {article.created_at}</p>
-            {/* <button className="ArticleVoteButton">{article.votes} ❤️</button> */}
+            <p className="ArticleCreatedAt">
+              Created at: {formatCreatedAt(article.created_at)}
+            </p>
             <div className="ArticleCommentsCount">
               Comments: {article.comment_count}
             </div>
