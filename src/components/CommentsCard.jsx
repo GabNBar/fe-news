@@ -1,3 +1,7 @@
 export default function CommentsCard() {
-  return <p>Comments Card</p>;
+  return (
+    <>
+      <h3>Comments Section</h3>
+    </>
+  );
 }
