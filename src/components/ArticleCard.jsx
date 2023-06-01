@@ -10,7 +10,6 @@ export default function ArticleCard() {
 
   useEffect(() => {
     fetchArticlesById(article_id).then((articleData) => {
-      // console.log(articleData);
       setArticle(articleData.article);
     });
   }, [article_id]);
@@ -21,12 +20,15 @@ export default function ArticleCard() {
 
   return (
     <>
-      <div className="ArticleCard card"></div>
+      {/* <div className="ArticleCard card"></div> */}
       <h2>{article.title}</h2>
       <img src={article.article_img_url} alt="" className="ArticleImage" />
       <p>Topic: {article.topic[0].toUpperCase() + article.topic.slice(1)}</p>
       <h3>Author: {article.author}</h3>
       <p>{article.body}</p>
+      <button className="ArticleVoteButton">
+        Up Votes: {article.votes} ⬆️
+      </button>
       <CommentsCard />
     </>
   );

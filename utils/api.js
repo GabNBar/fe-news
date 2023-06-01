@@ -8,7 +8,6 @@ export function fetchArticles() {
   return api
     .get("/articles")
     .then(({ data }) => {
-      // console.log(data);
       return data.articles;
     })
     .catch((err) => {
@@ -25,7 +24,6 @@ export const fetchArticlesById = (article_id) => {
 
 export const fetchCommentsByArticle = (article_id) => {
   return api.get(`/${article_id}/comments`).then((res) => {
-    console.log(res.data);
     return res.data;
   });
 };
