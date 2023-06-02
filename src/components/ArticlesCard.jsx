@@ -5,15 +5,18 @@ import { formatCreatedAt } from "../../utils/helpers";
 
 export default function ArticlesCard() {
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetchArticles().then((data) => {
+      setLoading(false);
       setArticles(data);
     });
   }, []);
 
-  if (!articles) {
-    return <div>The page is loading, please wait.</div>;
+  if (loading === true) {
+    return <p>The articles are loading, please wait.</p>;
   }
 
   return (
