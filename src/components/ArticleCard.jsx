@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function ArticleCard() {
-  const params = useParams();
   const { article_id } = useParams();
   const [article, setArticle] = useState();
 

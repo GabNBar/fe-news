@@ -30,7 +30,9 @@ export default function CommentsCard() {
           <p>Created at: {formatCreatedAt(comment.created_at)}</p>
           <div>
             <button> ❤️</button>
+            &nbsp;
             <button>👎</button>
+            &nbsp;
             <span>{comment.votes}</span>
           </div>
         </div>

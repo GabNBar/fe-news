@@ -5,19 +5,23 @@ import { formatCreatedAt } from "../../utils/helpers";
 
 export default function ArticlesCard() {
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetchArticles().then((data) => {
+      setLoading(false);
       setArticles(data);
     });
   }, []);
 
-  if (!articles) {
-    return <div>The page is loading, please wait.</div>;
+  if (loading === true) {
+    return <p>The articles are loading, please wait.</p>;
   }
 
   return (
-    <div className="ArticlesCard card">
+    <>
+      {/* <div className="ArticlesCard card"> */}
       <h2 className="CardTitle">Articles</h2>
       {articles.map((article) => (
         <div key={article.article_id} className="ArticleItem">
@@ -38,6 +42,7 @@ export default function ArticlesCard() {
           </Link>
         </div>
       ))}
-    </div>
+      {/* </div> */}
+    </>
   );
 }
